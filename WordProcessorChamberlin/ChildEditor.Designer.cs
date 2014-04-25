@@ -28,13 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(526, 429);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "Grumpy wizards make toxic brew for the evil Queen and Jack.";
             // 
             // ChildEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 229);
+            this.ClientSize = new System.Drawing.Size(550, 453);
+            this.Controls.Add(this.richTextBox1);
             this.Name = "ChildEditor";
             this.Text = "ChildEditor";
             this.ResumeLayout(false);
@@ -42,5 +53,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

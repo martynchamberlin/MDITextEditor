@@ -20,16 +20,16 @@ namespace WordProcessorChamberlin
 
         }
 
-        public void create_document()
+        public void create_document( string name )
         {
             // Auto-generate the document name
-            String name = "Document " + num_documents;
+            String documentName = "Document " + num_documents;
 
             // Update the Toolstrip Menu item
-            ToolStripMenuItem nav_li = new ToolStripMenuItem( name );
+            ToolStripMenuItem nav_li = new ToolStripMenuItem(documentName);
 
             // Instantiate the new child form
-            ChildEditor form = new ChildEditor( this, name, nav_li );
+            ChildEditor form = new ChildEditor(this, documentName, name, nav_li);
 
             // Specify the child form's parent
             form.MdiParent = this;
@@ -48,6 +48,7 @@ namespace WordProcessorChamberlin
 
             // Bind the click event to this new item
             nav_li.Click += new System.EventHandler( bringToFront );
+
         }
 
         private void bringToFront(object sender, EventArgs e)
@@ -59,13 +60,12 @@ namespace WordProcessorChamberlin
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            create_document();
+            create_document( ((ToolStripMenuItem)sender).Name );
         }
 
         public void childFormClosed( ChildEditor form )
         {
             Window.DropDownItems.Remove(form.nav_li);
-            
         }
     }
 }

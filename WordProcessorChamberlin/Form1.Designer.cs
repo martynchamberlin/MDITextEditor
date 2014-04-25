@@ -32,7 +32,6 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +40,16 @@
             this.fontSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontFamilyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Window = new System.Windows.Forms.ToolStripMenuItem();
+            this.yellow = new System.Windows.Forms.ToolStripMenuItem();
+            this.orange = new System.Windows.Forms.ToolStripMenuItem();
+            this.lgreen = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgreen = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblue = new System.Windows.Forms.ToolStripMenuItem();
+            this.dblue = new System.Windows.Forms.ToolStripMenuItem();
+            this.purple = new System.Windows.Forms.ToolStripMenuItem();
+            this.pink = new System.Windows.Forms.ToolStripMenuItem();
+            this.lgray = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgray = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +57,7 @@
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 42);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(641, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1471, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -60,7 +69,7 @@
             this.Window});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(641, 42);
+            this.menuStrip2.Size = new System.Drawing.Size(1471, 42);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -68,7 +77,6 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
-            this.openToolStripMenuItem,
             this.closeToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -77,28 +85,32 @@
             // 
             // newToolStripMenuItem
             // 
+            this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.yellow,
+            this.orange,
+            this.lgreen,
+            this.dgreen,
+            this.lblue,
+            this.dblue,
+            this.purple,
+            this.pink,
+            this.lgray,
+            this.dgray});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(164, 36);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(164, 36);
-            this.openToolStripMenuItem.Text = "Open...";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(244, 36);
+            this.newToolStripMenuItem.Text = "New Note";
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(164, 36);
-            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(244, 36);
+            this.closeToolStripMenuItem.Text = "Close Note";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(164, 36);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(244, 36);
+            this.exitToolStripMenuItem.Text = "Exit Editor";
             // 
             // formatToolStripMenuItem
             // 
@@ -114,25 +126,25 @@
             // boldToolStripMenuItem
             // 
             this.boldToolStripMenuItem.Name = "boldToolStripMenuItem";
-            this.boldToolStripMenuItem.Size = new System.Drawing.Size(225, 36);
+            this.boldToolStripMenuItem.Size = new System.Drawing.Size(244, 36);
             this.boldToolStripMenuItem.Text = "Bold";
             // 
             // italicToolStripMenuItem
             // 
             this.italicToolStripMenuItem.Name = "italicToolStripMenuItem";
-            this.italicToolStripMenuItem.Size = new System.Drawing.Size(225, 36);
+            this.italicToolStripMenuItem.Size = new System.Drawing.Size(244, 36);
             this.italicToolStripMenuItem.Text = "Italic";
             // 
             // fontSizeToolStripMenuItem
             // 
             this.fontSizeToolStripMenuItem.Name = "fontSizeToolStripMenuItem";
-            this.fontSizeToolStripMenuItem.Size = new System.Drawing.Size(225, 36);
+            this.fontSizeToolStripMenuItem.Size = new System.Drawing.Size(244, 36);
             this.fontSizeToolStripMenuItem.Text = "Font size...";
             // 
             // fontFamilyToolStripMenuItem
             // 
             this.fontFamilyToolStripMenuItem.Name = "fontFamilyToolStripMenuItem";
-            this.fontFamilyToolStripMenuItem.Size = new System.Drawing.Size(225, 36);
+            this.fontFamilyToolStripMenuItem.Size = new System.Drawing.Size(244, 36);
             this.fontFamilyToolStripMenuItem.Text = "Font family...";
             // 
             // Window
@@ -142,11 +154,81 @@
             this.Window.Size = new System.Drawing.Size(114, 38);
             this.Window.Text = "Window";
             // 
+            // yellow
+            // 
+            this.yellow.Name = "yellow";
+            this.yellow.Size = new System.Drawing.Size(244, 36);
+            this.yellow.Text = "Yellow";
+            this.yellow.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // orange
+            // 
+            this.orange.Name = "orange";
+            this.orange.Size = new System.Drawing.Size(244, 36);
+            this.orange.Text = "Orange";
+            this.orange.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // lgreen
+            // 
+            this.lgreen.Name = "lgreen";
+            this.lgreen.Size = new System.Drawing.Size(244, 36);
+            this.lgreen.Text = "Light Green";
+            this.lgreen.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // dgreen
+            // 
+            this.dgreen.Name = "dgreen";
+            this.dgreen.Size = new System.Drawing.Size(244, 36);
+            this.dgreen.Text = "Dark Green";
+            this.dgreen.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // lblue
+            // 
+            this.lblue.Name = "lblue";
+            this.lblue.Size = new System.Drawing.Size(244, 36);
+            this.lblue.Text = "Light Blue";
+            this.lblue.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // dblue
+            // 
+            this.dblue.Name = "dblue";
+            this.dblue.Size = new System.Drawing.Size(244, 36);
+            this.dblue.Text = "Dark Blue";
+            this.dblue.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // purple
+            // 
+            this.purple.Name = "purple";
+            this.purple.Size = new System.Drawing.Size(244, 36);
+            this.purple.Text = "Purple";
+            this.purple.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // pink
+            // 
+            this.pink.Name = "pink";
+            this.pink.Size = new System.Drawing.Size(244, 36);
+            this.pink.Text = "Pink";
+            this.pink.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // lgray
+            // 
+            this.lgray.Name = "lgray";
+            this.lgray.Size = new System.Drawing.Size(244, 36);
+            this.lgray.Text = "Light Gray";
+            this.lgray.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // dgray
+            // 
+            this.dgray.Name = "dgray";
+            this.dgray.Size = new System.Drawing.Size(244, 36);
+            this.dgray.Text = "Dark Gray";
+            this.dgray.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 709);
+            this.ClientSize = new System.Drawing.Size(1471, 709);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.IsMdiContainer = true;
@@ -166,7 +248,6 @@
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formatToolStripMenuItem;
@@ -175,6 +256,16 @@
         private System.Windows.Forms.ToolStripMenuItem fontSizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fontFamilyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Window;
+        private System.Windows.Forms.ToolStripMenuItem yellow;
+        private System.Windows.Forms.ToolStripMenuItem orange;
+        private System.Windows.Forms.ToolStripMenuItem lgreen;
+        private System.Windows.Forms.ToolStripMenuItem dgreen;
+        private System.Windows.Forms.ToolStripMenuItem lblue;
+        private System.Windows.Forms.ToolStripMenuItem dblue;
+        private System.Windows.Forms.ToolStripMenuItem purple;
+        private System.Windows.Forms.ToolStripMenuItem pink;
+        private System.Windows.Forms.ToolStripMenuItem lgray;
+        private System.Windows.Forms.ToolStripMenuItem dgray;
     }
 }
 
