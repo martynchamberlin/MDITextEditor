@@ -13,7 +13,7 @@ namespace WordProcessorChamberlin
     public partial class Form1 : Form
     {
         int num_documents = 1;
-        Dictionary<int, ChildEditor> children = new Dictionary<int, ChildEditor>();
+        Dictionary<ToolStripMenuItem, ChildEditor> children = new Dictionary<ToolStripMenuItem, ChildEditor>();
         public Form1()
         {
             InitializeComponent();
@@ -26,10 +26,10 @@ namespace WordProcessorChamberlin
             String name = "Document " + num_documents;
 
             // Update the Toolstrip Menu item
-            ToolStripMenuItem item = new ToolStripMenuItem( name );
+            ToolStripMenuItem nav_li = new ToolStripMenuItem( name );
 
             // Instantiate the new child form
-            ChildEditor form = new ChildEditor( this, name, item );
+            ChildEditor form = new ChildEditor( this, name, nav_li );
 
             // Specify the child form's parent
             form.MdiParent = this;
@@ -38,13 +38,23 @@ namespace WordProcessorChamberlin
             form.Show();
 
             // Add this form to our collection so we can keep track of it
-            children[num_documents] = form;
+            children[ nav_li ] = form;
 
             // increment the unique ID for child documents
             num_documents++;
 
             // Add the new document to our dropdown in the navigation
-            Window.DropDownItems.Add( item );
+            Window.DropDownItems.Add( nav_li );
+
+            // Bind the click event to this new item
+            nav_li.Click += new System.EventHandler( bringToFront );
+        }
+
+        private void bringToFront(object sender, EventArgs e)
+        {
+            // Sender was nav_li, so cast it to that
+            ToolStripMenuItem li = (ToolStripMenuItem)sender;
+            children[li].Activate();
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)

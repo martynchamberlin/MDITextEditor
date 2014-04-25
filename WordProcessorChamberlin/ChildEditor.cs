@@ -10,6 +10,10 @@ using System.Windows.Forms;
 
 namespace WordProcessorChamberlin
 {
+    /**
+     * Cannot inherit from Form1 becuase then this form would be both MDIParent and MDIChild,
+     * and that causes a runtime error when we attempt to instantiate an object of this class
+     */
     public partial class ChildEditor : Form
     {
         // Store object of parent window dropdown for this Child Editor window
