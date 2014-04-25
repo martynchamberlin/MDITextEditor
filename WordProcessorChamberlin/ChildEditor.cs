@@ -30,6 +30,12 @@ namespace WordProcessorChamberlin
 
         private Timer timer = new Timer();
 
+        /* 
+         * @param Form1 form - a reference to the calling parent MDI
+         * @param string title - the title of the form
+         * @param string color - the color, as specified by the user, of the form background
+         * @param ToolStripMenuItem nav_li - object that is storing this document in the primary navigation as a dropdown of "View"
+         */
         public ChildEditor( Form1 form, string title, string color, ToolStripMenuItem nav_li )
         {
             InitializeComponent();
@@ -40,7 +46,8 @@ namespace WordProcessorChamberlin
             this.FormClosed += new FormClosedEventHandler(FormIsClosing);
 
             // Specify the proper background color for this child form and the rich editor.
-            // First step is to initialize our colors
+            // First step is to initialize our colors. These RGB arrays are colors I made up.
+            // They look a little garish on my screen... turning them into gradients would help.
             Dictionary<string, int[]> colors = new Dictionary<string, int[]>();
             colors["yellow"] = new int[]{255, 253, 143};
             colors["orange"] = new int[]{255, 183, 127};
@@ -56,6 +63,8 @@ namespace WordProcessorChamberlin
             // Update background to appropriate color
             Color col = System.Drawing.Color.FromArgb(((int)(((byte)(colors[color][0])))), ((int)(((byte)(colors[color][1])))), ((int)(((byte)(colors[color][2])))));
             BackColor = col;
+            // Not an easy way to make this control transparent, so its background color must be manually
+            // specified as well
             richTextBox1.BackColor = col;
         }
          
@@ -100,6 +109,10 @@ namespace WordProcessorChamberlin
             refresh_font();
         }
 
+        /** 
+         * This is the only place in which we are actually updating the font to the view.
+         * Everywhere else is simply backend signaling.
+         */ 
         public void refresh_font()
         {
             if (bold && italic)
@@ -119,8 +132,5 @@ namespace WordProcessorChamberlin
                 this.richTextBox1.Font = new System.Drawing.Font(family, size, (System.Drawing.FontStyle)(System.Drawing.FontStyle.Regular), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             }
         }
-        //newlabel.Font = new Font(newlabel.Font.FontFamily, Fontsize);
     }
-
-
 }
