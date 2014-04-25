@@ -18,8 +18,15 @@ namespace WordProcessorChamberlin
     {
         // Store object of parent window dropdown for this Child Editor window
         public ToolStripMenuItem nav_li;
+
         // Store object of parent window
         public Form1 parentForm;
+
+        // Variables to keep track of the font formatting for the textarea
+        public bool bold = false;
+        public bool italic = false;
+        public string family = "Microsoft Sans Serif";
+        public float size = 11F;
 
         private Timer timer = new Timer();
 
@@ -47,7 +54,6 @@ namespace WordProcessorChamberlin
             colors["dgray"] = new int[]{203, 203, 203};
 
             // Update background to appropriate color
-            
             Color col = System.Drawing.Color.FromArgb(((int)(((byte)(colors[color][0])))), ((int)(((byte)(colors[color][1])))), ((int)(((byte)(colors[color][2])))));
             BackColor = col;
             richTextBox1.BackColor = col;
@@ -60,24 +66,59 @@ namespace WordProcessorChamberlin
 
         public void makeBold()
         {
-            this.richTextBox1.Font = new Font(richTextBox1.Font, FontStyle.Bold);
+            this.bold = true;
+            refresh_font();
         }
 
         public void makeUnbold()
         {
-            //this.richTextBox1.Font = new Font(richTextBox1.Font, FontStyle);
+            this.bold = false;
+            refresh_font();
         }
 
         public void makeItalic()
         {
-            this.richTextBox1.Font = new Font(richTextBox1.Font, FontStyle.Italic);
+            this.italic = true;
+            refresh_font();
         }
 
-        public void changeFont()
+        public void makeUnitalic()
         {
-            this.richTextBox1.Font = new Font(richTextBox1.Font, FontStyle.Italic);
+            this.italic = false;
+            refresh_font();
         }
 
+        public void changeFontSize( float size )
+        {
+            this.size = size;
+            refresh_font();
+        }
+
+        public void changeFontFamily( string family )
+        {
+            this.family = family;
+            refresh_font();
+        }
+
+        public void refresh_font()
+        {
+            if (bold && italic)
+            {
+                this.richTextBox1.Font = new System.Drawing.Font(family, size, (System.Drawing.FontStyle)(System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            }
+            else if (italic)
+            {
+                this.richTextBox1.Font = new System.Drawing.Font(family, size, (System.Drawing.FontStyle)(System.Drawing.FontStyle.Italic), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            }
+            else if (bold)
+            {
+                this.richTextBox1.Font = new System.Drawing.Font(family, size, (System.Drawing.FontStyle)(System.Drawing.FontStyle.Bold), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            }
+            else
+            {
+                this.richTextBox1.Font = new System.Drawing.Font(family, size, (System.Drawing.FontStyle)(System.Drawing.FontStyle.Regular), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            }
+        }
         //newlabel.Font = new Font(newlabel.Font.FontFamily, Fontsize);
     }
 

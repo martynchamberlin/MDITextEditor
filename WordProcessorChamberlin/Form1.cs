@@ -21,7 +21,7 @@ namespace WordProcessorChamberlin
 
         }
 
-        public void create_document( string name )
+        public void create_document(string name)
         {
             // Auto-generate the document name
             String documentName = "Document " + num_documents;
@@ -39,16 +39,16 @@ namespace WordProcessorChamberlin
             form.Show();
 
             // Add this form to our collection so we can keep track of it
-            children[ nav_li ] = form;
+            children[nav_li] = form;
 
             // increment the unique ID for child documents
             num_documents++;
 
             // Add the new document to our dropdown in the navigation
-            Window.DropDownItems.Add( nav_li );
+            Window.DropDownItems.Add(nav_li);
 
             // Bind the click event to this new item
-            nav_li.Click += new System.EventHandler( bringToFront );
+            nav_li.Click += new System.EventHandler(bringToFront);
 
         }
 
@@ -61,10 +61,10 @@ namespace WordProcessorChamberlin
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            create_document( ((ToolStripMenuItem)sender).Name );
+            create_document(((ToolStripMenuItem)sender).Name);
         }
 
-        public void childFormClosed( ChildEditor form )
+        public void childFormClosed(ChildEditor form)
         {
             Window.DropDownItems.Remove(form.nav_li);
         }
@@ -72,13 +72,82 @@ namespace WordProcessorChamberlin
         private void boldToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChildEditor form = (ChildEditor)this.ActiveMdiChild;
-            form.makeBold();
+            // We always have to first make sure that an MdiChild actually exists
+            if (form != null)
+            {
+                if (form.bold)
+                {
+                    form.makeUnbold();
+                }
+                else
+                {
+                    form.makeBold();
+                }
+            }
         }
 
         private void italicToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChildEditor form = (ChildEditor)this.ActiveMdiChild;
-            form.makeItalic();
+            if (form != null)
+            {
+                if (form.italic)
+                {
+                    form.makeUnitalic();
+                }
+                else
+                {
+                    form.makeItalic();
+                }
+            }
+        }
+
+        private void formatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChildEditor form = (ChildEditor)this.ActiveMdiChild;
+            if (form != null)
+            {
+                if (form.bold)
+                {
+                    boldToolStripMenuItem.Checked = true;
+                }
+                else
+                {
+                    boldToolStripMenuItem.Checked = false;
+                }
+                if (form.italic)
+                {
+                    italicToolStripMenuItem.Checked = true;
+                }
+                else
+                {
+                    italicToolStripMenuItem.Checked = false;
+                }
+            }
+        }
+
+        private void ptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChildEditor form = (ChildEditor)this.ActiveMdiChild;
+            // float font_size = (float)this.Name;
+            if (form != null)
+            {
+                // form.changeFontSize
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChildEditor form = (ChildEditor)this.ActiveMdiChild;
+            if (form != null)
+            {
+                form.Close();
+            }
         }
     }
 }
