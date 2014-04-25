@@ -58,8 +58,27 @@ namespace WordProcessorChamberlin
            this.parentForm.childFormClosed( this );
         }
 
+        public void makeBold()
+        {
+            this.richTextBox1.Font = new Font(richTextBox1.Font, FontStyle.Bold);
+        }
 
+        public void makeUnbold()
+        {
+            //this.richTextBox1.Font = new Font(richTextBox1.Font, FontStyle);
+        }
 
+        public void makeItalic()
+        {
+            this.richTextBox1.Font = new Font(richTextBox1.Font, FontStyle.Italic);
+        }
+
+        public void changeFont()
+        {
+            this.richTextBox1.Font = new Font(richTextBox1.Font, FontStyle.Italic);
+        }
+
+        //newlabel.Font = new Font(newlabel.Font.FontFamily, Fontsize);
     }
 
 

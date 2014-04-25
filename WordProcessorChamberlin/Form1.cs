@@ -14,6 +14,7 @@ namespace WordProcessorChamberlin
     {
         int num_documents = 1;
         Dictionary<ToolStripMenuItem, ChildEditor> children = new Dictionary<ToolStripMenuItem, ChildEditor>();
+
         public Form1()
         {
             InitializeComponent();
@@ -66,6 +67,18 @@ namespace WordProcessorChamberlin
         public void childFormClosed( ChildEditor form )
         {
             Window.DropDownItems.Remove(form.nav_li);
+        }
+
+        private void boldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChildEditor form = (ChildEditor)this.ActiveMdiChild;
+            form.makeBold();
+        }
+
+        private void italicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChildEditor form = (ChildEditor)this.ActiveMdiChild;
+            form.makeItalic();
         }
     }
 }
