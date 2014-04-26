@@ -16,7 +16,7 @@ __Overview__: This is a multiple document interface (MDI) text editor for Window
 
 Below are some possible enhancements to this program that would make it better.
 
-- It would be nice to change the color of the forms.
+- It would be nice to change the font color of the forms.
 - The backgrounds available for the MDI children look quite garish. They were taken from the [dashboard sticky backgrounds](https://developer.apple.com/library/mac/documentation/AppleApplications/Conceptual/Dashboard_ProgTopics/Art/stickies_front-back_2x.png) for Mac OS X. The reason they look so bad in this app is because they are not gradients. If they were made gradients, they would look much richer. Given how imprecise Windows Forms are by default however, and given that this would need support for retina and non-retina devices, I feel like this is a very bad use of time at present.
 - There currently exists no way to save and load previously created documents. This would need to be done either (1) via a database (2) via file management. Either way, there would need to be meta data associated with the file, indicating the font family, size, and styling. 
 - There currently exists no way to stylize just a portion of the text. It is either all or none. The ability to style only a portion of a `RichTextBox` object is probably not possible, and this is getting much deeper than the assignment required. Some day I hope to explore exactly how this is possible. I suspect it involves complex matrices and number theory.
