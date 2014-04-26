@@ -39,6 +39,7 @@ namespace WordProcessorChamberlin
         public ChildEditor( Form1 form, string title, string color, ToolStripMenuItem nav_li )
         {
             InitializeComponent();
+
             this.Text = title;
             this.nav_li = nav_li;
             this.parentForm = form;
@@ -131,6 +132,11 @@ namespace WordProcessorChamberlin
             {
                 this.richTextBox1.Font = new System.Drawing.Font(family, size, (System.Drawing.FontStyle)(System.Drawing.FontStyle.Regular), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             }
+        }
+
+        public void changeAlignment( HorizontalAlignment alignment )
+        {
+            this.richTextBox1.SelectionAlignment = alignment;
         }
     }
 }

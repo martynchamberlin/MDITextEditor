@@ -410,20 +410,23 @@
             this.leftToolStripMenuItem.Checked = true;
             this.leftToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.leftToolStripMenuItem.Name = "leftToolStripMenuItem";
-            this.leftToolStripMenuItem.Size = new System.Drawing.Size(161, 36);
+            this.leftToolStripMenuItem.Size = new System.Drawing.Size(244, 36);
             this.leftToolStripMenuItem.Text = "Left";
+            this.leftToolStripMenuItem.Click += new System.EventHandler(this.textAlignmentToolStripMenuItem_Click);
             // 
             // centerToolStripMenuItem
             // 
             this.centerToolStripMenuItem.Name = "centerToolStripMenuItem";
-            this.centerToolStripMenuItem.Size = new System.Drawing.Size(161, 36);
+            this.centerToolStripMenuItem.Size = new System.Drawing.Size(244, 36);
             this.centerToolStripMenuItem.Text = "Center";
+            this.centerToolStripMenuItem.Click += new System.EventHandler(this.textAlignmentToolStripMenuItem_Click);
             // 
             // rightToolStripMenuItem
             // 
             this.rightToolStripMenuItem.Name = "rightToolStripMenuItem";
-            this.rightToolStripMenuItem.Size = new System.Drawing.Size(161, 36);
+            this.rightToolStripMenuItem.Size = new System.Drawing.Size(244, 36);
             this.rightToolStripMenuItem.Text = "Right";
+            this.rightToolStripMenuItem.Click += new System.EventHandler(this.textAlignmentToolStripMenuItem_Click);
             // 
             // Window
             // 

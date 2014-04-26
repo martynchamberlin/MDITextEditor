@@ -240,5 +240,32 @@ namespace WordProcessorChamberlin
                 closeToolStripMenuItem.Enabled = false;
             }
         }
+
+        private void textAlignmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // First, uncheckmark all previous alignments 
+            uncheckmark_a_list(textAlignToolStripMenuItem);
+
+            // Now checkmark the appropriate one
+            ((ToolStripMenuItem)sender).Checked = true;
+
+            ChildEditor form = (ChildEditor)this.ActiveMdiChild;
+            string alignment = ((ToolStripMenuItem)sender).Text;
+            if ( form != null )
+            {
+                if ( alignment == "Left" )
+                {
+                    form.changeAlignment( HorizontalAlignment.Left);
+                }
+                else if ( alignment == "Right" )
+                {
+                    form.changeAlignment( HorizontalAlignment.Right);
+                }
+                else // if (alignment == "Center")
+                {
+                    form.changeAlignment(HorizontalAlignment.Center);
+                }
+            }
+        }
     }
 }
