@@ -79,7 +79,7 @@ namespace WordProcessorChamberlin
             active_documents--;
 
             // If that was the last MDI window, then disable pertinent dropdowns
-            
+
             enableOrDisableDropdownItems();
         }
 
@@ -161,19 +161,35 @@ namespace WordProcessorChamberlin
             }
         }
 
+        private void uncheckmark_a_list( ToolStripMenuItem ul )
+        {
+            foreach (ToolStripMenuItem nav_li in ul.DropDown.Items)
+            {
+                nav_li.Checked = false;
+            }
+        }
+
         private void ptToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // First, uncheckmark all previous pt's
+            uncheckmark_a_list(fontSize);
+
             ChildEditor form = (ChildEditor)this.ActiveMdiChild;
+            ToolStripMenuItem li = (ToolStripMenuItem)sender;
+            li.Checked = true;
+            string name = li.Name;
+
             // The name of all the font size toolstrip menu items starts with pt and then followed
             // by the integer of the font size. Hence, we need to strip the first two characters off 
             // and convert the result to a float.
-            float font_size = Convert.ToInt64(((ToolStripMenuItem)sender).Name.Substring(2));
+            
+            float font_size = Convert.ToInt64(name.Substring(2));
             if (form != null)
             {
                 form.size = font_size;
                 form.refresh_font();
             }
-             
+
         }
 
         // Let the user close the application
@@ -192,8 +208,14 @@ namespace WordProcessorChamberlin
             }
         }
 
-        private void fontFamilyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void fontFamilyToolStripMenuItemChild_Clicked(object sender, EventArgs e)
         {
+            // First, uncheckmark all previous font families 
+            uncheckmark_a_list(fontFamilyToolStripMenuItem);
+
+            // Now checkmark the appropriate one
+            ((ToolStripMenuItem)sender).Checked = true;
+
             ChildEditor form = (ChildEditor)this.ActiveMdiChild;
             string font_family = ((ToolStripMenuItem)sender).Text;
             if (form != null)
@@ -205,7 +227,7 @@ namespace WordProcessorChamberlin
 
         public void enableOrDisableDropdownItems()
         {
-            if ( active_documents > 0 )
+            if (active_documents > 0)
             {
                 formatToolStripMenuItem.Enabled = true;
                 Window.Enabled = true;
